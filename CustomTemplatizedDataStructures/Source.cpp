@@ -3,15 +3,19 @@
 #include "LClinkedList.h"
 #include "LClinkedList.inl"
 
+
+
 int main() {
 
-	MyLinkedList<int> myLinkedList;
-	myLinkedList.addAtHead(0);
-	myLinkedList.addAtIndex(1, 4);
-	myLinkedList.addAtTail(8);
-	myLinkedList.addAtHead(5);
-	myLinkedList.addAtIndex(4, 3);
-	myLinkedList.addAtTail(0);
-	myLinkedList.display();
+	LCMyLinkedList<int> LCMyLinkedList;
+	LCMyLinkedList.addAtHead(0);
+	LCMyLinkedList.addAtIndex(1, 4);
+	LCMyLinkedList.addAtTail(8);
+	LCMyLinkedList.addAtHead(5);
+	LCMyLinkedList.addAtIndex(4, 3);
+	LCMyLinkedList.addAtTail(0);
+	LCMyLinkedList.display();
+	LCMyLinkedList.reverse();
+	LCMyLinkedList.display();
 	return 0;
 }

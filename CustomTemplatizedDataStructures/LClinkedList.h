@@ -1,24 +1,29 @@
 #pragma once
 template<class T>
-struct LinkedNode {
+struct LCLinkedNode {
 	T val;
-	LinkedNode* next;
+	LCLinkedNode* next;
 
-	LinkedNode() :val(0), next(nullptr) {}
+	LCLinkedNode() :val(0), next(nullptr) {}
 
-	LinkedNode(T value) :val(value), next(nullptr) {}
+	LCLinkedNode(T value) :val(value), next(nullptr) {}
 
-	LinkedNode(T value, LinkedNode* Node) :val(value), next(Node) {}
+	LCLinkedNode(T value, LCLinkedNode* Node) :val(value), next(Node) {}
 
 };
 template <class NODETYPE>
-class MyLinkedList {
+class LCMyLinkedList {
 public:
-	LinkedNode<NODETYPE>* head;
-	LinkedNode<NODETYPE>* tail;
+	LCLinkedNode<NODETYPE>* head;
+	LCLinkedNode<NODETYPE>* tail;
 	int count;
 	/** Initialize your data structure here. */
-	MyLinkedList() : head(), tail(), count(0) {}
+	LCMyLinkedList() : head(), tail(), count(0) {}
+
+	~LCMyLinkedList();
+
+	//reverse
+	void reverse();
 
 	/** Get the value of the index-th node in the linked list. If the index is invalid, return -1. */
 	NODETYPE get(int index);
