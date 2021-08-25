@@ -1,4 +1,5 @@
 #include "LClinkedList.h"
+
 template<class NODETYPE>
 LCMyLinkedList<NODETYPE>::~LCMyLinkedList() {
 	LCLinkedNode<NODETYPE>* current = head;
