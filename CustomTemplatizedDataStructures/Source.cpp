@@ -19,14 +19,14 @@ template <class NODETYPE>
 class Tree {
 	TreeNode <NODETYPE>* rootPtr{ nullptr };
 
-	void insertNodeHelper(TreeNode<NODETYPE>** ptr, const NODETYPE& value) {
-		if (*ptr == nullptr)
-			*ptr = new TreeNode<NODETYPE>(value);
+	void insertNodeHelper(TreeNode<NODETYPE>*& ptr, const NODETYPE& value) {
+		if (ptr == nullptr)
+			ptr = new TreeNode<NODETYPE>(value);
 		else {
-			if (value < (*ptr)->getData())
-				insertNodeHelper(&((*ptr)->leftPtr), value);
-			else if (value > (*ptr)->getData())
-				insertNodeHelper(&((*ptr)->rightPtr), value);
+			if (value < ptr->getData())
+				insertNodeHelper(ptr->leftPtr, value);
+			else if (value > ptr->getData())
+				insertNodeHelper(ptr->rightPtr, value);
 			else std::cout << "DATA DUPLICATE: " << value << std::endl;
 		}
 	}
@@ -54,14 +54,14 @@ class Tree {
 			std::cout << ptr->data << ' ';
 		}
 	}
-	
+
 public:
-~Tree() {
+	~Tree() {
 		delete rootPtr;
 	}
 
 	void insertNode(const NODETYPE& value) {
-		insertNodeHelper(&rootPtr, value);
+		insertNodeHelper(rootPtr, value);
 	}
 
 	void preOrderTraversal() const {
